@@ -133,7 +133,7 @@ jobs:
 
         run: |
 
-          az deployment group validate --name mydeployment1 --resource-group vibgok  --template-file ./azure_resource.bicep --parameters ./parameter.json
+          az deployment group validate --name mydeployment1 --resource-group vibgok  --template-file ./namespace.bicep --parameters ./parameter.json
 
 
 
@@ -177,7 +177,7 @@ jobs:
 
         run: |
 
-          az deployment group what-if --name mydeployment1 --resource-group vibgok --template-file ./azure_resource.bicep --parameters ./parameter.json
+          az deployment group what-if --name mydeployment1 --resource-group vibgok --template-file ./namespace.bicep --parameters ./parameter.json
 
  
 
@@ -223,4 +223,4 @@ jobs:
 
         run: |
 
-          az deployment group create --resource-group vibgok --template-file ./azure_resource.bicep --parameters ./parameter.json
+          az deployment group create --resource-group vibgok --template-file ./namespace.bicep --parameters ./parameter.json
