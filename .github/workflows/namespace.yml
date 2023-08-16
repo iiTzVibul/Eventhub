@@ -129,11 +129,11 @@ jobs:
 
       - name: Run Template Validation
 
-        working-directory: '${{github.workspace}}/src/bicep'
+        working-directory: '${{github.workspace}}/Source/Bicep'
 
         run: |
 
-          az deployment group validate --name mydeployment1 --resource-group 2158167ResGrp  --template-file ./azure_resource.bicep --parameters ./parameter.json
+          az deployment group validate --name mydeployment1 --resource-group vibgok  --template-file ./azure_resource.bicep --parameters ./parameter.json
 
 
 
@@ -173,11 +173,11 @@ jobs:
 
       - name: Run What-If Tests
 
-        working-directory: '${{github.workspace}}/src/bicep'
+        working-directory: '${{github.workspace}}/Source/Bicep'
 
         run: |
 
-          az deployment group what-if --name mydeployment1 --resource-group 2158167ResGrp --template-file ./azure_resource.bicep --parameters ./parameter.json
+          az deployment group what-if --name mydeployment1 --resource-group vibgok --template-file ./azure_resource.bicep --parameters ./parameter.json
 
  
 
@@ -219,8 +219,8 @@ jobs:
 
       - name: Deploy Resource
 
-        working-directory: '${{github.workspace}}/src/bicep'
+        working-directory: '${{github.workspace}}/Source/Bicep'
 
         run: |
 
-          az deployment group create --resource-group 2158167ResGrp --template-file ./azure_resource.bicep --parameters ./parameter.json
+          az deployment group create --resource-group vibgok --template-file ./azure_resource.bicep --parameters ./parameter.json
