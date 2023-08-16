@@ -1,56 +1,32 @@
-resource symbolicname 'Microsoft.EventHub/namespaces@2022-10-01-preview' = {
-  name: 'string'
-  location: 'string'
-  tags: {
-    tagName1: 'tagValue1'
-    tagName2: 'tagValue2'
-  }
+param eventHubNamespaceName string
+param eventHubName string
+param consumerGroupName string
+
+ 
+
+resource eventHubNamespace 'Microsoft.EventHub/namespaces@2021-06-01-preview' = {
+  name: eventHubNamespaceName
+  location: resourceGroup().location
   sku: {
-    capacity: int
-    name: 'string'
-    tier: 'string'
+    name: 'Standard'
+    tier: 'Standard'
   }
-  identity: {
-    type: 'string'
-    userAssignedIdentities: {}
-  }
+}
+
+ 
+
+resource eventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-06-01-preview' = {
+  parent: eventHubNamespace
+  name: eventHubName
   properties: {
-    alternateName: 'string'
-    clusterArmId: 'string'
-    disableLocalAuth: bool
-    encryption: {
-      keySource: 'Microsoft.KeyVault'
-      keyVaultProperties: [
-        {
-          identity: {
-            userAssignedIdentity: 'string'
-          }
-          keyName: 'string'
-          keyVaultUri: 'string'
-          keyVersion: 'string'
-        }
-      ]
-      requireInfrastructureEncryption: bool
-    }
-    isAutoInflateEnabled: bool
-    kafkaEnabled: bool
-    maximumThroughputUnits: int
-    minimumTlsVersion: 'string'
-    privateEndpointConnections: [
-      {
-        properties: {
-          privateEndpoint: {
-            id: 'string'
-          }
-          privateLinkServiceConnectionState: {
-            description: 'string'
-            status: 'string'
-          }
-          provisioningState: 'string'
-        }
-      }
-    ]
-    publicNetworkAccess: 'string'
-    zoneRedundant: bool
+    messageRetentionInDays: 1
+    partitionCount: 4
   }
+}
+
+ 
+
+resource consumerGroup 'Microsoft.EventHub/namespaces/eventhubs/consumergroups@2021-06-01-preview' = {
+  parent: eventHub
+  name: consumerGroupName
 }
