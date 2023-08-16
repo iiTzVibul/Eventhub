@@ -61,7 +61,7 @@ jobs:
 
         run: |
 
-          mkdir -p ${{ github.workspace }}/src/bicep/jsonFilesForScan
+          mkdir -p ${{ github.workspace }}/Source/Bicep/jsonFilesForScan
 
  
 
