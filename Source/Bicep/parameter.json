@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "eventHubNamespaceName": {
-      "value": "your-namespace-name"
+      "value": "2161411"
     }
   }
 }
