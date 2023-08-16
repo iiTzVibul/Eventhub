@@ -5,9 +5,6 @@
     "eventhubNamespaceName": {
       "value": "GEN-UNIQUE-22"
     },
-    "vnetRuleName": {
-      "value": "GEN-VNET-NAME"
-    },
     "subnetName": {
       "value": "GEN-VNET-SUBNET1-NAME"
     }
